@@ -1,0 +1,13 @@
+name: CSS Theme Dev Helper
+description: Polls on http://localhost:8080/theme.css and adds it to the page
+version: 0.1
+ui:
+  requires:
+    - CommunityScriptsUILibrary
+  javascript:
+    - cssThemeDev.js
+  csp:
+    connect-src:
+      - http://localhost:8080
+  assets:
+    /: .

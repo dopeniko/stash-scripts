@@ -1,0 +1,9 @@
+name: Jump to Now Playing
+description: Adds a button to the queue controls to scroll back to the currently playing scene
+version: 0.1
+ui:
+  requires:
+    - CommunityScriptsUILibrary
+    - fontawesome-js
+  javascript:
+    - jumpToNowPlaying.js
