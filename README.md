@@ -1,7 +1,7 @@
 ### How do I install and use these plugins?
 
 1. Follow the [Stash guide on adding a plugin source](https://docs.stashapp.cc/plugins/#adding-sources)
-2. Add this repository with Source index URL: `https://dopeniko.github.io/stash-scripts/main/index.yml`
+2. Add this repository with Source index URL: `https://dopeniko.github.io/stash-scripts/main/index.yml` ![adding the plugin index](.assets/adding-source.png)
 3. Before installing any plugins, read the documentation to ensure you have all the required dependencies
 
 ## Plugins

@@ -1,5 +1,7 @@
 name: Jump to Now Playing
 description: Adds a button to the queue controls to scroll back to the currently playing scene
+# requires: CommunityScriptsUILibrary
+# requires: fontawesome-js
 version: 0.1
 ui:
   requires:

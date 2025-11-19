@@ -1,0 +1,33 @@
+$primaryColour: #ff39d4;
+
+:root {
+	--primary: #{$primaryColour};
+
+	--primary-control: oklch(from var(--primary) calc(l * 1.2) c h / 0.2);
+
+	--primary-hover-colour: oklch(from var(--primary) 0.6 c h);
+
+	--accent-colour: var(--body-colour);
+
+	--accent-hover-colour: oklch(from var(--body-colour) calc(l * 1.5) c h);
+
+	--body-colour: hsl(from var(--primary) h calc(s * 0.4) calc(l * 0.08));
+
+	--body-hover-colour: oklch(from var(--body-colour) calc(l * 1.2) c h);
+
+	--text-colour: oklch(from var(--primary) 0.95 calc(0.2 * c) h);
+
+	--control-text-colour: oklch(from var(--primary) 0.8 calc(0.2 * c) h);
+
+	--text-muted: oklch(from var(--primary) 0.7 calc(0.2 * c) h);
+
+	--card-colour: #2a2a2a;
+
+	--tag-colour: #555555;
+
+	--minimal-button-hover: rgba(138, 155, 168, 0.15);
+
+	--font-sans: Rethink Sans, sans-serif;
+
+	--transition-duration: 0.2s;
+}

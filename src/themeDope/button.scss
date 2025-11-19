@@ -1,0 +1,113 @@
+.btn {
+	color: var(--control-text-colour) !important;
+	padding: 0.625rem 1.2rem;
+	border: none !important;
+	&:hover {
+		color: var(--text-colour) !important;
+	}
+	&:focus,
+	&.focus {
+		box-shadow: unset;
+	}
+	&:not(.minimal):not(.btn-minimal) {
+		background-color: transparent;
+		&:hover {
+			background-color: var(--accent-hover-colour);
+		}
+		&.disabled,
+		&[disabled] {
+			pointer-events: none;
+		}
+	}
+}
+
+select.btn-secondary {
+	background-color: var(--accent-colour) !important;
+	&:hover {
+		background-color: var(--accent-hover-colour) !important;
+	}
+	&.disabled,
+	&[disabled] {
+		pointer-events: none;
+	}
+}
+
+a:hover:has(> button) {
+	color: unset;
+	text-decoration: none;
+}
+
+.btn-primary {
+	&:is(button):not(.minimal) {
+		color: white !important;
+		background-color: var(--primary-control) !important;
+		&:hover {
+			background-color: var(--primary-hover-colour) !important;
+		}
+	}
+}
+
+.btn-primary:hover {
+	border-color: unset;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+	background-color: unset;
+	border-color: unset;
+	box-shadow: unset;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+	color: unset;
+	background-color: unset;
+	border-color: unset;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+	box-shadow: unset;
+}
+
+.btn-secondary {
+	&.active {
+		background-color: var(--accent-hover-colour) !important;
+	}
+	&:active,
+	&:focus {
+		background-color: var(--body-hover-colour) !important;
+		box-shadow: none !important;
+	}
+}
+
+.btn-danger {
+	color: var(--danger) !important;
+	&:hover {
+		background-color: var(--danger) !important;
+	}
+}
+
+.Lightbox-navbutton {
+	background-color: transparent !important;
+}
+
+.Lightbox-header-right {
+	button {
+		background-color: transparent !important;
+		&:hover {
+			background-color: var(--minimal-button-hover) !important;
+		}
+	}
+}
+
+.preview-button button.btn.btn-primary {
+	background-color: transparent !important;
+}
+
+div[class*='-divider'] > button.btn.btn-primary {
+	background-color: transparent !important;
+	&:hover {
+		background-color: var(--minimal-button-hover) !important;
+	}
+}

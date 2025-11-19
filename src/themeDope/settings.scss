@@ -1,0 +1,42 @@
+#tasks-panel .tasks-panel-queue {
+	background-color: var(--body-colour) !important;
+	> * {
+		background-color: var(--body-colour) !important;
+	}
+	.card:hover {
+		background: var(--body-colour) !important;
+	}
+}
+
+.setting-section {
+	background-color: unset !important;
+	.card:hover {
+		background: var(--body-colour) !important;
+	}
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+	border-color: unset !important;
+	box-shadow: unset;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+	border: none;
+	background-color: var(--primary);
+	color: var(--body-hover-colour);
+}
+
+.package-manager table thead {
+	background-color: var(--body-colour);
+}
+
+div.job-table {
+	&:hover {
+		background: none !important;
+	}
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+	color: var(--primary);
+}

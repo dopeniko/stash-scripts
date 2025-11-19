@@ -1,0 +1,25 @@
+.badge.badge-secondary.tag-item {
+	background-color: var(--primary-control) !important;
+	color: var(--text-colour) !important;
+}
+
+div.react-select__control .react-select__multi-value {
+	background-color: var(--text-colour);
+	span,
+	.react-select__multi-value__remove {
+		color: var(--body-colour);
+	}
+	.react-select__multi-value__remove {
+		&:hover {
+			color: var(--body-colour);
+			// background-color: var(--danger);
+		}
+	}
+}
+
+.stash-id-pill span {
+	background-color: var(--primary);
+}
+.stash-id-pill a {
+	background-color: var(--primary-control);
+}

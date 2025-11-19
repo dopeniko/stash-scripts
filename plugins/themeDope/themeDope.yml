@@ -1,0 +1,22 @@
+name: Dope Theme
+description: One of the themes of all time.
+# requires: CommunityScriptsUILibrary
+# requires: cssThemeFontLoader
+version: 0.1
+settings:
+  primaryColour:
+    displayName: Colour
+    description: Set the primary theme colour, any valid CSS colour string should work.
+    type: STRING
+ui:
+  requires:
+    - CommunityScriptsUILibrary
+    - cssThemeFontLoader
+  javascript:
+    - dopeThemeColour.js
+    - dopeThemeFonts.js
+  css:
+    - dopeTheme.css
+  csp:
+    connect-src:
+      - https://fonts.bunny.net

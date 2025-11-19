@@ -1,0 +1,42 @@
+.modal-dialog {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	max-width: unset;
+	margin: unset;
+
+	justify-content: center;
+	align-items: center;
+
+	.modal-content {
+		> * {
+			background-color: var(--body-colour);
+		}
+		> form > * {
+			background-color: var(--body-colour);
+		}
+	}
+
+	@media (min-width: 920px) {
+		&.modal-lg,
+		&.modal-xl {
+			.modal-content {
+				max-width: 800px;
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.modal-content {
+			max-width: 600px;
+		}
+	}
+
+	.modal-body:first-of-type {
+		padding-top: 2rem;
+	}
+
+	.modal-footer {
+		border-top-color: transparent;
+	}
+}

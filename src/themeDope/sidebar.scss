@@ -1,0 +1,65 @@
+.sidebar-pane {
+	.sidebar {
+		background-color: var(--body-colour);
+		margin-top: 4rem;
+		padding-top: 1rem;
+		border-right: unset;
+	}
+
+	.search-container {
+		border: none !important;
+	}
+
+	.filter-section {
+		border: none !important;
+
+		&:not(:has(> .filter-tags)) {
+			&:after {
+				content: 'No filters selected';
+				color: var(--control-text-colour);
+			}
+		}
+	}
+
+	.sidebar-section {
+		border-bottom: unset;
+		padding: 0.5rem 0;
+		li {
+			margin: 0.5rem 0;
+		}
+		.collapse-header {
+			padding: inherit 0.25rem;
+		}
+		.clearable-input-group {
+			padding: 0 0.5rem;
+		}
+		&:has(.collapse-button:hover) {
+			background: var(--body-hover-colour);
+		}
+		transition-property: background-color;
+	}
+
+	[role='toolbar'] {
+		background-color: var(--body-colour);
+		margin-bottom: 1rem;
+
+		.paginationIndex {
+			font-size: 1.25rem;
+			padding-left: 1rem;
+			.scenes-stats {
+				font-size: 0.8rem;
+				padding-left: 0.5rem;
+			}
+		}
+	}
+
+	.list-results-header {
+		> :last-child > * {
+			height: 100%;
+		}
+	}
+
+	.page-size-selector select {
+		padding: 0.625rem 1.2rem;
+	}
+}

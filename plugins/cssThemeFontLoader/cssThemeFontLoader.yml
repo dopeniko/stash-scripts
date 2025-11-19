@@ -1,0 +1,6 @@
+name: Font Loader
+description: Plugin dependency to facilitate loading fonts from external sources.
+version: 0.1
+ui:
+  javascript:
+    - cssThemeFontLoader.js

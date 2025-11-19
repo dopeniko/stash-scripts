@@ -1,0 +1,52 @@
+.card {
+	background-color: transparent !important;
+	margin: 0px 4px 12px 4px;
+	border-radius: unset;
+	box-shadow: unset;
+	font-family: var(--font-sans);
+
+	&:hover {
+		background: radial-gradient(
+			circle,
+			hsl(from var(--primary) h s l / 2%) 60%,
+			hsl(from var(--body-colour) h s calc(l + 3)) 100%
+		) !important;
+	}
+
+	> .card-popovers {
+		display: none;
+	}
+
+	> hr {
+		display: none;
+	}
+
+	h5.card-section-title {
+		font-weight: bolder !important;
+		font-size: 16px !important;
+	}
+
+	> .card-section {
+		padding: 0.6rem 2rem;
+	}
+
+	a:has(~ .performers > .list:empty) {
+		padding-top: 6px;
+	}
+
+	transition-property: all;
+	transition-duration: 0.25s;
+	transition-behavior: allow-discrete;
+}
+
+.hover-scrubber-indicator-marker {
+	background-color: var(--primary) !important;
+}
+
+.progress-indicator {
+	background-color: hsl(from var(--primary) h s l / 40%) !important;
+}
+
+.preview-button > button {
+	background-color: transparent !important;
+}

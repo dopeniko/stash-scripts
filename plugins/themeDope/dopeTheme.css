@@ -1,0 +1,601 @@
+:root {
+  --primary: #ff39d4;
+  --primary-control: oklch(from var(--primary) calc(l * 1.2) c h / 0.2);
+  --primary-hover-colour: oklch(from var(--primary) 0.6 c h);
+  --accent-colour: var(--body-colour);
+  --accent-hover-colour: oklch(from var(--body-colour) calc(l * 1.5) c h);
+  --body-colour: hsl(from var(--primary) h calc(s * 0.4) calc(l * 0.08));
+  --body-hover-colour: oklch(from var(--body-colour) calc(l * 1.2) c h);
+  --text-colour: oklch(from var(--primary) 0.95 calc(0.2 * c) h);
+  --control-text-colour: oklch(from var(--primary) 0.8 calc(0.2 * c) h);
+  --text-muted: oklch(from var(--primary) 0.7 calc(0.2 * c) h);
+  --card-colour: #2a2a2a;
+  --tag-colour: #555555;
+  --minimal-button-hover: rgba(138, 155, 168, 0.15);
+  --font-sans: Rethink Sans, sans-serif;
+  --transition-duration: 0.2s;
+}
+
+body {
+  font-family: "Rethink Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+a {
+  color: var(--primary);
+}
+a:hover {
+  color: var(--text-colour);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--body-colour);
+  color: var(--text-colour);
+}
+
+.bg-dark {
+  background-color: hsl(from var(--body-colour) h s calc(l + 1)) !important;
+}
+
+.pagination .btn.page-count {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.badge-info {
+  background-color: var(--primary) !important;
+}
+
+.badge {
+  border-radius: 1rem;
+}
+
+.badge-secondary {
+  background-color: var(--primary-control);
+}
+
+.tag-item {
+  font-size: 1rem;
+  padding: 4px 8px;
+}
+
+.edit-filter-dialog .criterion-list .card .filter-item-header:focus, .edit-filter-dialog .criterion-list .card .filter-item-header:active {
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+}
+
+.modifier-options .modifier-option {
+  background-color: var(--accent-hover-colour) !important;
+}
+.modifier-options .modifier-option.selected {
+  background-color: var(--primary) !important;
+}
+
+.detail-header {
+  background-color: var(--body-colour);
+}
+
+.popover {
+  background-color: var(--body-hover-colour) !important;
+}
+
+.bg-secondary {
+  background-color: var(--body-hover-colour) !important;
+}
+.bg-secondary:hover[role=button] {
+  background-color: oklch(from var(--body-hover-colour) calc(l * 1.3) c h) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--primary-control);
+}
+
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::-moz-range-track,
+.display-mode-menu .zoom-slider::-webkit-slider-thumb,
+.display-mode-menu .zoom-slider::-moz-range-thumb {
+  background-color: var(--primary);
+}
+
+.form-control,
+.input-control {
+  background-color: var(--body-hover-colour);
+  color: var(--control-text-colour);
+  border: none !important;
+  padding: 1rem;
+  height: 100%;
+}
+.form-control:is(input, select),
+.input-control:is(input, select) {
+  box-shadow: none !important;
+}
+.form-control:is(input, select):not(:is(select)),
+.input-control:is(input, select):not(:is(select)) {
+  border-width: 0 0 1px 0 !important;
+  border-bottom: solid !important;
+  border-color: var(--accent-colour) !important;
+}
+.form-control:is(input, select):hover,
+.input-control:is(input, select):hover {
+  background-color: oklch(from var(--body-hover-colour) calc(l * 1.1) c h);
+}
+.form-control:is(input, select):active, .form-control:is(input, select):focus,
+.input-control:is(input, select):active,
+.input-control:is(input, select):focus {
+  background-color: var(--body-hover-colour) !important;
+}
+.form-control:is(input, select):active:not(:is(select)), .form-control:is(input, select):focus:not(:is(select)),
+.input-control:is(input, select):active:not(:is(select)),
+.input-control:is(input, select):focus:not(:is(select)) {
+  border-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+.form-control:is(input, select),
+.input-control:is(input, select) {
+  transition-property: border-color;
+}
+.form-control,
+.input-control {
+  transition-property: background-color;
+  transition-duration: var(--transition-duration);
+}
+.form-control::placeholder,
+.input-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group.row > label {
+  line-height: 2;
+}
+
+.invalid-feedback {
+  margin: unset;
+}
+
+.react-select__placeholder {
+  color: var(--text-muted) !important;
+}
+
+div.react-select__control {
+  background-color: var(--body-hover-colour);
+  border-width: 2px;
+  border-color: transparent;
+}
+div.react-select__control:hover {
+  border-color: transparent;
+}
+
+div.react-select__menu,
+div.dropdown-menu {
+  background-color: var(--body-hover-colour);
+  padding: 1rem 0.5rem;
+  gap: 0.5rem;
+}
+
+.react-datepicker-wrapper > * {
+  height: 100%;
+}
+.react-datepicker-wrapper button {
+  height: 100%;
+}
+
+.btn {
+  color: var(--control-text-colour) !important;
+  padding: 0.625rem 1.2rem;
+  border: none !important;
+}
+.btn:hover {
+  color: var(--text-colour) !important;
+}
+.btn:focus, .btn.focus {
+  box-shadow: unset;
+}
+.btn:not(.minimal):not(.btn-minimal) {
+  background-color: transparent;
+}
+.btn:not(.minimal):not(.btn-minimal):hover {
+  background-color: var(--accent-hover-colour);
+}
+.btn:not(.minimal):not(.btn-minimal).disabled, .btn:not(.minimal):not(.btn-minimal)[disabled] {
+  pointer-events: none;
+}
+
+select.btn-secondary {
+  background-color: var(--accent-colour) !important;
+}
+select.btn-secondary:hover {
+  background-color: var(--accent-hover-colour) !important;
+}
+select.btn-secondary.disabled, select.btn-secondary[disabled] {
+  pointer-events: none;
+}
+
+a:hover:has(> button) {
+  color: unset;
+  text-decoration: none;
+}
+
+.btn-primary:is(button):not(.minimal) {
+  color: white !important;
+  background-color: var(--primary-control) !important;
+}
+.btn-primary:is(button):not(.minimal):hover {
+  background-color: var(--primary-hover-colour) !important;
+}
+
+.btn-primary:hover {
+  border-color: unset;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  background-color: unset;
+  border-color: unset;
+  box-shadow: unset;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: unset;
+  background-color: unset;
+  border-color: unset;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: unset;
+}
+
+.btn-secondary.active {
+  background-color: var(--accent-hover-colour) !important;
+}
+.btn-secondary:active, .btn-secondary:focus {
+  background-color: var(--body-hover-colour) !important;
+  box-shadow: none !important;
+}
+
+.btn-danger {
+  color: var(--danger) !important;
+}
+.btn-danger:hover {
+  background-color: var(--danger) !important;
+}
+
+.Lightbox-navbutton {
+  background-color: transparent !important;
+}
+
+.Lightbox-header-right button {
+  background-color: transparent !important;
+}
+.Lightbox-header-right button:hover {
+  background-color: var(--minimal-button-hover) !important;
+}
+
+.preview-button button.btn.btn-primary {
+  background-color: transparent !important;
+}
+
+div[class*=-divider] > button.btn.btn-primary {
+  background-color: transparent !important;
+}
+div[class*=-divider] > button.btn.btn-primary:hover {
+  background-color: var(--minimal-button-hover) !important;
+}
+
+.modal-dialog {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  max-width: unset;
+  margin: unset;
+  justify-content: center;
+  align-items: center;
+}
+.modal-dialog .modal-content > * {
+  background-color: var(--body-colour);
+}
+.modal-dialog .modal-content > form > * {
+  background-color: var(--body-colour);
+}
+@media (min-width: 920px) {
+  .modal-dialog.modal-lg .modal-content, .modal-dialog.modal-xl .modal-content {
+    max-width: 800px;
+  }
+}
+@media (min-width: 768px) {
+  .modal-dialog .modal-content {
+    max-width: 600px;
+  }
+}
+.modal-dialog .modal-body:first-of-type {
+  padding-top: 2rem;
+}
+.modal-dialog .modal-footer {
+  border-top-color: transparent;
+}
+
+nav.top-nav {
+  padding: 0rem 1rem;
+  height: 4rem;
+}
+nav.top-nav div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+nav.top-nav .btn {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+nav.top-nav .btn:is(a):hover {
+  background: none !important;
+  border-color: none !important;
+  box-shadow: none !important;
+}
+nav.top-nav .btn:is(a).active {
+  background: none !important;
+  border-color: none !important;
+  box-shadow: none !important;
+  color: var(--primary) !important;
+}
+nav .navbar-nav > div:has(> a.active) {
+  border-bottom: 2px solid var(--primary);
+}
+nav .navbar-nav > div > a {
+  padding-left: 2px !important;
+}
+nav.navbar-expand-xl .nav-link {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.nav-pills .nav-link {
+  color: var(--control-text-colour);
+}
+.nav-pills .nav-link.active {
+  background-color: var(--accent-colour) !important;
+}
+.nav-pills .nav-link:hover {
+  color: var(--white);
+}
+
+.nav-tabs .nav-link {
+  color: var(--control-text-colour);
+}
+.nav-tabs .nav-link:hover {
+  color: var(--text-colour);
+  border-color: transparent;
+}
+.nav-tabs .nav-link.active {
+  background-color: transparent;
+  color: var(--primary);
+}
+.nav-tabs .nav-link.active:hover {
+  border-color: var(--primary);
+}
+
+.sidebar-pane .sidebar {
+  background-color: var(--body-colour);
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-right: unset;
+}
+.sidebar-pane .search-container {
+  border: none !important;
+}
+.sidebar-pane .filter-section {
+  border: none !important;
+}
+.sidebar-pane .filter-section:not(:has(> .filter-tags)):after {
+  content: "No filters selected";
+  color: var(--control-text-colour);
+}
+.sidebar-pane .sidebar-section {
+  border-bottom: unset;
+  padding: 0.5rem 0;
+}
+.sidebar-pane .sidebar-section li {
+  margin: 0.5rem 0;
+}
+.sidebar-pane .sidebar-section .collapse-header {
+  padding: inherit 0.25rem;
+}
+.sidebar-pane .sidebar-section .clearable-input-group {
+  padding: 0 0.5rem;
+}
+.sidebar-pane .sidebar-section:has(.collapse-button:hover) {
+  background: var(--body-hover-colour);
+}
+.sidebar-pane .sidebar-section {
+  transition-property: background-color;
+}
+.sidebar-pane [role=toolbar] {
+  background-color: var(--body-colour);
+  margin-bottom: 1rem;
+}
+.sidebar-pane [role=toolbar] .paginationIndex {
+  font-size: 1.25rem;
+  padding-left: 1rem;
+}
+.sidebar-pane [role=toolbar] .paginationIndex .scenes-stats {
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+}
+.sidebar-pane .list-results-header > :last-child > * {
+  height: 100%;
+}
+.sidebar-pane .page-size-selector select {
+  padding: 0.625rem 1.2rem;
+}
+
+.card {
+  background-color: transparent !important;
+  margin: 0px 4px 12px 4px;
+  border-radius: unset;
+  box-shadow: unset;
+  font-family: var(--font-sans);
+}
+.card:hover {
+  background: radial-gradient(circle, hsl(from var(--primary) h s l/2%) 60%, hsl(from var(--body-colour) h s calc(l + 3)) 100%) !important;
+}
+.card > .card-popovers {
+  display: none;
+}
+.card > hr {
+  display: none;
+}
+.card h5.card-section-title {
+  font-weight: bolder !important;
+  font-size: 16px !important;
+}
+.card > .card-section {
+  padding: 0.6rem 2rem;
+}
+.card a:has(~ .performers > .list:empty) {
+  padding-top: 6px;
+}
+.card {
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-behavior: allow-discrete;
+}
+
+.hover-scrubber-indicator-marker {
+  background-color: var(--primary) !important;
+}
+
+.progress-indicator {
+  background-color: hsl(from var(--primary) h s l/40%) !important;
+}
+
+.preview-button > button {
+  background-color: transparent !important;
+}
+
+.badge.badge-secondary.tag-item {
+  background-color: var(--primary-control) !important;
+  color: var(--text-colour) !important;
+}
+
+div.react-select__control .react-select__multi-value {
+  background-color: var(--text-colour);
+}
+div.react-select__control .react-select__multi-value span,
+div.react-select__control .react-select__multi-value .react-select__multi-value__remove {
+  color: var(--body-colour);
+}
+div.react-select__control .react-select__multi-value .react-select__multi-value__remove:hover {
+  color: var(--body-colour);
+}
+
+.stash-id-pill span {
+  background-color: var(--primary);
+}
+
+.stash-id-pill a {
+  background-color: var(--primary-control);
+}
+
+.recommendation-row-head {
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 1rem;
+}
+.recommendation-row-head h2 {
+  font-size: 2rem;
+  text-transform: unset;
+}
+.recommendation-row-head a {
+  color: var(--body-colour);
+}
+.recommendation-row-head a::after {
+  position: absolute;
+  content: "";
+  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTEwIDRINmEyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMnYtNG0tOC0ybDgtOG0wIDB2NW0wLTVoLTUiLz48L3N2Zz4=") no-repeat 100% 100%;
+  -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTEwIDRINmEyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMnYtNG0tOC0ybDgtOG0wIDB2NW0wLTVoLTUiLz48L3N2Zz4=") no-repeat 100% 100%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: var(--text-colour);
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.recommendation-row-head a:hover::after {
+  background-color: white;
+}
+
+#scene-edit-details .edit-buttons-container {
+  background-color: var(--body-colour);
+}
+
+#queue-viewer .queue-controls {
+  background-color: var(--body-colour);
+}
+
+#queue-viewer .current {
+  background-color: transparent;
+}
+#queue-viewer .current a > div {
+  background-color: var(--primary-control);
+}
+#queue-viewer li:not(.current) a > div:hover {
+  background-color: var(--body-hover-colour);
+}
+
+#tasks-panel .tasks-panel-queue {
+  background-color: var(--body-colour) !important;
+}
+#tasks-panel .tasks-panel-queue > * {
+  background-color: var(--body-colour) !important;
+}
+#tasks-panel .tasks-panel-queue .card:hover {
+  background: var(--body-colour) !important;
+}
+
+.setting-section {
+  background-color: unset !important;
+}
+.setting-section .card:hover {
+  background: var(--body-colour) !important;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  border-color: unset !important;
+  box-shadow: unset;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border: none;
+  background-color: var(--primary);
+  color: var(--body-hover-colour);
+}
+
+.package-manager table thead {
+  background-color: var(--body-colour);
+}
+
+div.job-table:hover {
+  background: none !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--primary);
+}
+
+/*# sourceMappingURL=theme.css.map */
