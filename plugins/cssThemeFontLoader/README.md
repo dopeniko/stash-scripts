@@ -1,6 +1,6 @@
 # Font Loader
 
-As of writing this, Stash doesn't have a way of modifying the font-src CSP directive. This is a plugin which adds a function to the window object to load fonts from external sources for your theme. It works by pulling the font files with `fetch`, transforming them into base64, and loading the fonts using the FontFace API.
+As of writing this, Stash doesn't have a way of modifying the font-src CSP directive. This is a plugin which adds a function to the window object to load fonts from external sources for your theme (although this issue appears to be Firefox-specific). It works by pulling the font files with `fetch`, transforming them into base64, and loading the fonts using the FontFace API.
 
 ## Usage
 

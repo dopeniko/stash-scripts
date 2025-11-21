@@ -1,0 +1,6 @@
+name: Remove Scene Card Popovers
+description: Hides the popovers section on scene cards.
+version: 0.1
+ui:
+  css:
+    - theme.css

@@ -1,92 +1,111 @@
 * {
-	scrollbar-width: thin;
+  scrollbar-width: thin;
 }
 
 a {
-	color: var(--primary);
-	&:hover {
-		color: var(--text-colour);
-	}
+  color: var(--primary);
+  &:hover {
+    color: var(--text-colour);
+  }
 }
 
 body {
-	width: 100%;
-	height: 100%;
-	background: var(--body-colour);
-	color: var(--text-colour);
+  width: 100%;
+  height: 100%;
+  background: var(--body-colour);
+  color: var(--text-colour);
+  scrollbar-color: var(--text-colour) var(--body-colour);
 }
 
 .bg-dark {
-	background-color: hsl(from var(--body-colour) h s calc(l + 1)) !important;
+  background-color: hsl(from var(--body-colour) h s calc(l + 1)) !important;
 }
 
 .pagination .btn.page-count {
-	padding-right: 15px;
-	padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .badge-info {
-	background-color: var(--primary) !important;
+  background-color: var(--primary) !important;
 }
 
 .badge {
-	border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 .badge-secondary {
-	background-color: var(--primary-control);
+  background-color: var(--primary-control);
 }
 
 .tag-item {
-	font-size: 1rem;
-	padding: 4px 8px;
+  font-size: 1rem;
+  padding: 4px 8px;
 }
 
 .edit-filter-dialog .criterion-list .card .filter-item-header {
-	&:focus,
-	&:active {
-		border: none;
-		border-radius: none;
-		box-shadow: none;
-	}
+  &:focus,
+  &:active {
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+  }
 }
 
 .modifier-options .modifier-option {
-	background-color: var(--accent-hover-colour) !important;
-	&.selected {
-		background-color: var(--primary) !important;
-	}
+  background-color: var(--accent-hover-colour) !important;
+  &.selected {
+    background-color: var(--primary) !important;
+  }
 }
 
 .detail-header {
-	background-color: var(--body-colour);
+  background-color: var(--body-colour);
 }
 
 .popover {
-	background-color: var(--body-hover-colour) !important;
+  background-color: var(--body-hover-colour) !important;
 }
 
 .bg-secondary {
-	background-color: var(--body-hover-colour) !important;
-	&:hover[role='button'] {
-		background-color: oklch(
-			from var(--body-hover-colour) calc(l * 1.3) c h
-		) !important;
-	}
+  background-color: var(--body-hover-colour) !important;
+  &:hover[role="button"] {
+    background-color: oklch(
+      from var(--body-hover-colour) calc(l * 1.3) c h
+    ) !important;
+  }
+}
+
+.text-white {
+  color: var(--text-colour) !important;
 }
 
 .text-muted {
-	color: var(--text-muted) !important;
+  color: var(--text-muted) !important;
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
-	background-color: var(--primary-control);
+  background-color: var(--primary-control);
 }
 
-input[type='range']::-webkit-slider-runnable-track,
-input[type='range']::-moz-range-track,
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track,
 .display-mode-menu .zoom-slider::-webkit-slider-thumb,
 .display-mode-menu .zoom-slider::-moz-range-thumb {
-	background-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.table-list table thead {
+  background-color: var(--accent-hover-colour);
+  color: var(--text-colour);
+}
+
+.StudioTagger-studio,
+.PerformerTagger-performer {
+  background-color: var(--body-colour);
+}
+
+.StudioTagger-studio .studio-card img {
+  background-color: transparent;
 }

@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/theme.css", "destination": "plugins/themeDope/dopeTheme.css" }
+  ]
+}

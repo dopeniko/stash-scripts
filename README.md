@@ -10,14 +10,26 @@
 
 Display your currently playing scene in your Discord activity. <sub>(I am not responsible for any mishaps)</sub>
 
-### Dope Theme (WIP)
-
-My personal theme, with a customisable base colour.
-
 ### [Jump to Now Playing](plugins/jumpToNowPlaying)
 
 Adds a button on the queue control to scroll back to the currently playing video.
 
+## Themes and UI tweaks
+
+### [Dope Theme](plugins/themeDope/)
+
+My personal theme, with a customisable base colour.
+
+### [No Scene Card Popovers](/plugins/themeNoSceneCardPopovers/)
+
+Remove popovers footer from scene cards.
+
+## Plugin libraries
+
 ### [Dev Theme Helper](plugins/cssThemeDev)
 
 Helper script if you want to develop your own theme. Continuously polls for http://localhost:8080/theme.css and adds it to the page styles.
+
+### [Font Loader](plugins/cssThemeDev)
+
+Allows your theme to fetch fonts from external CDNs (workaround for `font-src` CSP directive on Firefox).

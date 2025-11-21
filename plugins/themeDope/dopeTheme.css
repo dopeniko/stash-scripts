@@ -38,6 +38,7 @@ body {
   height: 100%;
   background: var(--body-colour);
   color: var(--text-colour);
+  scrollbar-color: var(--text-colour) var(--body-colour);
 }
 
 .bg-dark {
@@ -94,6 +95,10 @@ body {
   background-color: oklch(from var(--body-hover-colour) calc(l * 1.3) c h) !important;
 }
 
+.text-white {
+  color: var(--text-colour) !important;
+}
+
 .text-muted {
   color: var(--text-muted) !important;
 }
@@ -108,6 +113,20 @@ input[type=range]::-moz-range-track,
 .display-mode-menu .zoom-slider::-webkit-slider-thumb,
 .display-mode-menu .zoom-slider::-moz-range-thumb {
   background-color: var(--primary);
+}
+
+.table-list table thead {
+  background-color: var(--accent-hover-colour);
+  color: var(--text-colour);
+}
+
+.StudioTagger-studio,
+.PerformerTagger-performer {
+  background-color: var(--body-colour);
+}
+
+.StudioTagger-studio .studio-card img {
+  background-color: transparent;
 }
 
 .form-control,
@@ -135,6 +154,7 @@ input[type=range]::-moz-range-track,
 .form-control:is(input, select):active, .form-control:is(input, select):focus,
 .input-control:is(input, select):active,
 .input-control:is(input, select):focus {
+  color: var(--text-colour);
   background-color: var(--body-hover-colour) !important;
 }
 .form-control:is(input, select):active:not(:is(select)), .form-control:is(input, select):focus:not(:is(select)),
@@ -159,6 +179,10 @@ input[type=range]::-moz-range-track,
 
 .form-group.row > label {
   line-height: 2;
+}
+
+.scraper-menu .dropdown-menu .scraper-filter-container {
+  background-color: transparent;
 }
 
 .invalid-feedback {
@@ -192,6 +216,38 @@ div.dropdown-menu {
   height: 100%;
 }
 
+select.form-control {
+  padding-right: 2rem;
+  appearance: none;
+  background: none;
+}
+
+div:has(> select.form-control:only-child) {
+  position: relative;
+}
+div:has(> select.form-control:only-child)::after {
+  transition: transform 0.2s;
+  pointer-events: none;
+  position: absolute;
+  background-color: var(--control-text-colour);
+  height: 100%;
+  aspect-ratio: 1/1.5;
+  right: 0;
+  top: 0;
+  content: "";
+  --icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M300.3 440.8C312.9 451 331.4 450.3 343.1 438.6L471.1 310.6C480.3 301.4 483 287.7 478 275.7C473 263.7 461.4 256 448.5 256L192.5 256C179.6 256 167.9 263.8 162.9 275.8C157.9 287.8 160.7 301.5 169.9 310.6L297.9 438.6L300.3 440.8z"/></svg>');
+  mask-image: var(--icon);
+  -webkit-mask-position-x: 80%;
+  -webkit-mask-position-y: 50%;
+  mask-composite: exclude;
+  mask-repeat: no-repeat;
+  mask-size: 60%;
+  mask-position: center;
+}
+div:has(> select.form-control:only-child):has(select:focus)::after {
+  transform: rotate(180deg);
+}
+
 .btn {
   color: var(--control-text-colour) !important;
   padding: 0.625rem 1.2rem;
@@ -211,6 +267,10 @@ div.dropdown-menu {
 }
 .btn:not(.minimal):not(.btn-minimal).disabled, .btn:not(.minimal):not(.btn-minimal)[disabled] {
   pointer-events: none;
+}
+
+.btn-secondary:hover {
+  color: var(--text-colour);
 }
 
 select.btn-secondary {
@@ -372,7 +432,7 @@ nav.navbar-expand-xl .nav-link {
   background-color: var(--accent-colour) !important;
 }
 .nav-pills .nav-link:hover {
-  color: var(--white);
+  color: var(--text-colour);
 }
 
 .nav-tabs .nav-link {
@@ -454,12 +514,6 @@ nav.navbar-expand-xl .nav-link {
 .card:hover {
   background: radial-gradient(circle, hsl(from var(--primary) h s l/2%) 60%, hsl(from var(--body-colour) h s calc(l + 3)) 100%) !important;
 }
-.card > .card-popovers {
-  display: none;
-}
-.card > hr {
-  display: none;
-}
 .card h5.card-section-title {
   font-weight: bolder !important;
   font-size: 16px !important;
@@ -523,17 +577,20 @@ div.react-select__control .react-select__multi-value .react-select__multi-value_
 }
 .recommendation-row-head a {
   color: var(--body-colour);
+  position: relative;
 }
 .recommendation-row-head a::after {
   position: absolute;
   content: "";
-  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTEwIDRINmEyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMnYtNG0tOC0ybDgtOG0wIDB2NW0wLTVoLTUiLz48L3N2Zz4=") no-repeat 100% 100%;
-  -webkit-mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTEwIDRINmEyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMnYtNG0tOC0ybDgtOG0wIDB2NW0wLTVoLTUiLz48L3N2Zz4=") no-repeat 100% 100%;
+  --icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23e3e3e3"><path d="M120-320v-80h320v80H120Zm0-160v-80h480v80H120Zm0-160v-80h480v80H120Zm520 520v-320l240 160-240 160Z"/></svg>');
+  mask: var(--icon) no-repeat 100% 100%;
+  -webkit-mask: var(--icon) no-repeat 100% 100%;
   -webkit-mask-size: cover;
   mask-size: cover;
   background-color: var(--text-colour);
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  bottom: 0;
 }
 .recommendation-row-head a:hover::after {
   background-color: white;
@@ -543,8 +600,23 @@ div.react-select__control .react-select__multi-value .react-select__multi-value_
   background-color: var(--body-colour);
 }
 
+#queue-viewer a {
+  color: var(--text-colour);
+}
+#queue-viewer a span:not(.queue-scene-title) {
+  color: var(--text-muted) !important;
+}
+#queue-viewer ol {
+  padding-left: 24px;
+}
 #queue-viewer .queue-controls {
   background-color: var(--body-colour);
+  padding-bottom: 1rem;
+  box-sizing: content-box;
+}
+
+#queue-content li a {
+  display: inline-block;
 }
 
 #queue-viewer .current {
@@ -555,6 +627,25 @@ div.react-select__control .react-select__multi-value .react-select__multi-value_
 }
 #queue-viewer li:not(.current) a > div:hover {
   background-color: var(--body-hover-colour);
+}
+
+.scene-list-toolbar.filtered-list-toolbar .toolbar-selection-section,
+.scene-list-toolbar.filtered-list-toolbar div.filter-section {
+  border: none;
+}
+
+.selected-items-info {
+  gap: 1rem;
+}
+
+.search-item {
+  background-color: var(--body-colour);
+}
+
+.input-group-text {
+  background-color: var(--primary-control);
+  color: var(--text-colour);
+  border: none;
 }
 
 #tasks-panel .tasks-panel-queue {
@@ -598,4 +689,4 @@ div.job-table:hover {
   color: var(--primary);
 }
 
-/*# sourceMappingURL=theme.css.map */
+/*# sourceMappingURL=dopeTheme.css.map */
