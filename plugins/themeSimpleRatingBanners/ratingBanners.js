@@ -1,4 +1,5 @@
 patchNodeContent(".rating-banner", (node) => {
-  node.innerHTML.replaceAll(/[^\d]/g, "");
-  node.innerHTML += '<i class="fa-solid fa-star"></i>';
+  return (
+    node.innerHTML.replaceAll(/[^\d]/g, "") + '<i class="fa-solid fa-star"></i>'
+  );
 });
