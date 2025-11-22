@@ -248,6 +248,10 @@ div:has(> select.form-control:only-child):has(select:focus)::after {
   transform: rotate(180deg);
 }
 
+.pagination .btn-group {
+  background-color: var(--accent-colour);
+}
+
 .btn {
   color: var(--control-text-colour) !important;
   padding: 0.625rem 1.2rem;

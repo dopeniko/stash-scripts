@@ -111,3 +111,7 @@ div:has(> select.form-control:only-child) {
     transform: rotate(180deg);
   }
 }
+
+.pagination .btn-group {
+  background-color: var(--accent-colour);
+}
