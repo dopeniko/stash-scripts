@@ -1,0 +1,13 @@
+name: Simple Rating Banners
+description: Smaller and sleeker rating banners
+# requires: nodePatcher
+# requires: fontawesome-js
+version: 0.1
+ui:
+  requires:
+    - nodePatcher
+    - fontawesome-js
+  javascript:
+    - ratingBanners.js
+  css:
+    - ratingBanners.css

@@ -1,0 +1,5 @@
+name: DOM Node Patcher
+version: 0.1
+ui:
+  javascript:
+    - nodePatcher.js

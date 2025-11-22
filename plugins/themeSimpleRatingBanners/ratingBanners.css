@@ -1,0 +1,7 @@
+.rating-banner[data-patched] {
+  transform: unset;
+  padding: 0.25rem 0.75rem 0.3rem 0.5rem;
+  left: 0;
+  top: 0;
+  background: linear-gradient(90deg, var(--primary) 70%, transparent 100%);
+}
