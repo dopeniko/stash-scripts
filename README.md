@@ -26,9 +26,9 @@ Remove popovers footer from scene cards.
 
 ## Plugin libraries
 
-### [Dev Theme Helper](plugins/cssThemeDev)
+### [Dev Plugin Helper](plugins/pluginDev/)
 
-Helper script if you want to develop your own theme. Continuously polls for http://localhost:8080/theme.css and adds it to the page styles.
+Helper script if you want to develop your own plugin or theme. Adds `http://localhost:8080/plugin.js` and `http://localhost:8080/plugin.css` to the page.
 
 ### [Font Loader](plugins/cssThemeDev)
 

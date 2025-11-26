@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/plugin.js",
+      "destination": "plugins/discordPresence/discordPresence.js"
+    },
+    {
+      "source": "/plugin.css",
+      "destination": "plugins/discordPresence/discordPresence.css"
+    }
+  ]
+}

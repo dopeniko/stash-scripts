@@ -1,0 +1,11 @@
+name: Plugin Dev Helper
+description: Adds `http://localhost:8080/plugin.js` and `http://localhost:8080/plugin.css` to the page.
+version: 0.1
+ui:
+  javascript:
+    - http://localhost:8080/plugin.js
+  css:
+    - http://localhost:8080/plugin.css
+  csp:
+    connect-src:
+      - http://localhost:8080

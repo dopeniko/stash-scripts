@@ -1,0 +1,29 @@
+[discord-presence="status-dot"] {
+  top: unset !important;
+  left: unset !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  &.connected {
+    background-color: #5865f2;
+  }
+  &.connecting {
+    background-color: #fee75c;
+  }
+  &.sending-updates {
+    background-color: #57f287;
+  }
+  &.disconnected {
+    background-color: rgb(180, 180, 180);
+  }
+  &.connection-error {
+    background-color: #ed4245;
+  }
+}
+
+[discord-presence="toast"] {
+  a {
+    text-decoration: underline solid auto;
+    font-weight: bold;
+    color: inherit;
+  }
+}

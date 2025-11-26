@@ -10,9 +10,9 @@ A plugin which shows the metadata of the currently playing Stash scene as your D
 
 - Download and run [Discord Presence Server](https://github.com/NotForMyCV/discord-presence-server/releases). You **do not** need any browser extensions.
 
-#### Required Stash plugins
+## Usage
 
-- [CommunityScriptsUILibrary](https://docs.stashapp.cc/plugins/list/#communityscriptsuilibrary)
+After you've downloaded the desktop tray app and it is running, login into your Stash and you'll notice there is a new icon on the navbar. Click it to connect your browser to the desktop app. You'll see a notification if it's successful, and then Stash is ready to update presence updates.
 
 #### Why the desktop app?
 
