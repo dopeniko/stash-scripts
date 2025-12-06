@@ -362,6 +362,10 @@ div[class*=-divider] > button.btn.btn-primary:hover {
   background-color: var(--minimal-button-hover) !important;
 }
 
+.not-organized {
+  filter: brightness(0.5);
+}
+
 .modal-dialog {
   display: flex;
   height: 100vh;
