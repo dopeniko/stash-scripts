@@ -1,7 +1,8 @@
 {
   "name": "discordPresence",
-  "version": "2.0",
-  "description": "A template for creating plugins for Stash using the native plugin API.",
+  "description": "Sets currently playing scene data as your Discord status.",
+  "url": "https://github.com/dopeniko/stash-scripts/tree/main/plugins/discordPresence",
+  "version": "2.1",
   "main": "./src/main.ts",
   "type": "commonjs",
   "scripts": {

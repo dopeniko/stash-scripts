@@ -12,9 +12,6 @@ export interface UseDiscordPresenceOptions {
 export interface PresenceWsHook {
   enabled: boolean;
   setEnabled: (v: boolean) => void;
-  // Auto heal is not currently implemented
-  keepAlive: boolean;
-  setKeepAlive: (v: boolean) => void;
   lastPresenceUpdate: number | null;
   state: PluginState;
   config: Required<MyPluginConfig>;
@@ -26,6 +23,7 @@ export function useDiscordPresence(
 ): PresenceWsHook {
   const { PluginApi } = window;
   const { hooks } = PluginApi;
+  const MAX_RETRIES = 5;
 
   const toasts = hooks.useToast();
   const socketUrl = options.socketUrl ?? "ws://localhost:6969";
@@ -33,9 +31,7 @@ export function useDiscordPresence(
   const [enabled, setEnabled] = useState<boolean>(
     options.initialEnabled ?? true
   );
-  const [keepAlive, setKeepAlive] = useState<boolean>(
-    options.initialKeepAlive ?? true
-  );
+  const [retryCount, setRetryCount] = useState(-1);
   const [lastPresenceUpdate, setLastPresenceUpdate] = useState<number | null>(
     null
   );
@@ -52,43 +48,12 @@ export function useDiscordPresence(
     }
   }, [options.pluginConfig]);
 
-  const failedToConnectToast = (e?: Event | Error) => {
-    log.error("Failed to connect to the companion app", e);
-    createToast(toasts, {
-      content: (
-        <>
-          Failed to connect to the companion app.{" "}
-          <a
-            href="https://discourse.stashapp.cc/t/discord-presence/1374"
-            target="_blank"
-          >
-            Is the tray app running?
-          </a>
-        </>
-      ),
-      variant: "warning",
-    });
-    setKeepAlive(false);
-    setEnabled(false);
-  };
-
-  const connectionLostToast = (e?: Event | Error) => {
-    log.error("Lost WS connection to tray app", e);
-    createToast(toasts, {
-      content: "Connection lost to RPC server.",
-      variant: "danger",
-    });
-    setState(PluginState.CONNECTION_ERROR);
-  };
-
   React.useEffect(() => {
     if (!enabled) {
       if (wsRef.current) {
         try {
           wsRef.current.close();
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         wsRef.current = null;
       }
       setState(PluginState.DISCONNECTED);
@@ -107,8 +72,7 @@ export function useDiscordPresence(
     const onOpen = (ev: Event) => {
       setState(PluginState.CONNECTED);
       createToast(toasts, { content: "Connected.", variant: "success" });
-      wsRef.current?.removeEventListener("error", failedToConnectToast);
-      wsRef.current?.addEventListener("error", connectionLostToast);
+      setRetryCount(0);
     };
 
     const onMessage = (ev: MessageEvent) => {
@@ -130,20 +94,56 @@ export function useDiscordPresence(
       }, 5000);
     };
 
+    const onError = (e?: Event | Error) => {
+      if (retryCount === -1) {
+        log.error("Failed to connect to the companion app", e);
+        createToast(toasts, {
+          content: (
+            <>
+              Failed to connect to the companion app.{" "}
+              <a
+                href="https://discourse.stashapp.cc/t/discord-presence/1374"
+                target="_blank"
+              >
+                Is the tray app running?
+              </a>
+            </>
+          ),
+          variant: "warning",
+        });
+        setEnabled(false);
+        return;
+      }
+
+      const currentRetry = retryCount < 1 ? 1 : retryCount + 1;
+
+      if (currentRetry > MAX_RETRIES) {
+        log.error("Lost connection to the companion app", e);
+        createToast(toasts, {
+          content: "Connection lost to RPC server.",
+          variant: "danger",
+        });
+        setState(PluginState.CONNECTION_ERROR);
+        setEnabled(false);
+        setRetryCount(-1);
+        return;
+      }
+
+      log.info(`Attempting reconnect (${currentRetry})`);
+      setRetryCount(currentRetry);
+    };
+
     ws.addEventListener("open", onOpen);
-    ws.addEventListener("error", failedToConnectToast);
+    ws.addEventListener("error", onError);
     ws.addEventListener("message", onMessage);
 
     // cleanup for this socket instance
     return () => {
       try {
         ws.removeEventListener("open", onOpen);
-        ws.removeEventListener("error", failedToConnectToast);
-        ws.removeEventListener("error", connectionLostToast);
+        ws.removeEventListener("error", onError);
         ws.removeEventListener("message", onMessage);
-      } catch {
-        /* ignore */
-      }
+      } catch {}
 
       if (presenceTimeoutRef.current !== null) {
         window.clearTimeout(presenceTimeoutRef.current);
@@ -153,13 +153,11 @@ export function useDiscordPresence(
       if (wsRef.current === ws) {
         try {
           ws.close();
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         wsRef.current = null;
       }
     };
-  }, [enabled, keepAlive, socketUrl]);
+  }, [enabled, retryCount, socketUrl]);
 
   // cleanup on unmount
   React.useEffect(() => {
@@ -171,9 +169,7 @@ export function useDiscordPresence(
       if (wsRef.current) {
         try {
           wsRef.current.close();
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         wsRef.current = null;
       }
     };
@@ -183,14 +179,12 @@ export function useDiscordPresence(
     () => ({
       enabled,
       setEnabled,
-      keepAlive,
-      setKeepAlive,
       lastPresenceUpdate,
       state,
       config,
       ws: wsRef.current,
     }),
-    [enabled, keepAlive, lastPresenceUpdate, state, config]
+    [enabled, lastPresenceUpdate, state, config]
   );
 
   return returnObj;

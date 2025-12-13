@@ -27,10 +27,8 @@ interface IPluginContext extends PresenceWsHook {}
 export const PluginContext = React.createContext<IPluginContext>({
   config: defaultConfig,
   enabled: false,
-  keepAlive: true,
   lastPresenceUpdate: null,
   state: PluginState.DISCONNECTED,
   ws: null,
   setEnabled: (e: boolean) => {},
-  setKeepAlive: (e: boolean) => {},
 });
