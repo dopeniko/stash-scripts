@@ -1,6 +1,6 @@
 name: Discord Presence
 description: Sets currently playing scene data as your Discord status.
-version: '2.1'
+version: 2.1
 ui:
   javascript:
     - discordPresence.js
