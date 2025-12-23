@@ -39,20 +39,6 @@
 		transition-property: background-color;
 	}
 
-	[role='toolbar'] {
-		background-color: var(--body-colour);
-		margin-bottom: 1rem;
-
-		.paginationIndex {
-			font-size: 1.25rem;
-			padding-left: 1rem;
-			.scenes-stats {
-				font-size: 0.8rem;
-				padding-left: 0.5rem;
-			}
-		}
-	}
-
 	.list-results-header {
 		> :last-child > * {
 			height: 100%;
@@ -61,5 +47,19 @@
 
 	.page-size-selector select {
 		padding: 0.625rem 1.2rem;
+	}
+}
+
+[role='toolbar'] {
+	background-color: var(--body-colour);
+	margin-bottom: 1rem;
+
+	.paginationIndex {
+		font-size: 1.25rem;
+		padding-left: 1rem;
+		.scenes-stats {
+			font-size: 0.8rem;
+			padding-left: 0.5rem;
+		}
 	}
 }

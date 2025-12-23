@@ -493,23 +493,24 @@ nav.navbar-expand-xl .nav-link {
 .sidebar-pane .sidebar-section {
   transition-property: background-color;
 }
-.sidebar-pane [role=toolbar] {
-  background-color: var(--body-colour);
-  margin-bottom: 1rem;
-}
-.sidebar-pane [role=toolbar] .paginationIndex {
-  font-size: 1.25rem;
-  padding-left: 1rem;
-}
-.sidebar-pane [role=toolbar] .paginationIndex .scenes-stats {
-  font-size: 0.8rem;
-  padding-left: 0.5rem;
-}
 .sidebar-pane .list-results-header > :last-child > * {
   height: 100%;
 }
 .sidebar-pane .page-size-selector select {
   padding: 0.625rem 1.2rem;
+}
+
+[role=toolbar] {
+  background-color: var(--body-colour);
+  margin-bottom: 1rem;
+}
+[role=toolbar] .paginationIndex {
+  font-size: 1.25rem;
+  padding-left: 1rem;
+}
+[role=toolbar] .paginationIndex .scenes-stats {
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
 }
 
 .card {
