@@ -366,6 +366,10 @@ div[class*=-divider] > button.btn.btn-primary:hover {
   filter: brightness(0.5);
 }
 
+.not-favorite {
+  filter: brightness(0.5);
+}
+
 .modal-dialog {
   display: flex;
   height: 100vh;
