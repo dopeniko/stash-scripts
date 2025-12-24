@@ -367,7 +367,7 @@ div[class*=-divider] > button.btn.btn-primary:hover {
 }
 
 .not-favorite {
-  filter: brightness(0.5);
+  filter: brightness(0.5) !important;
 }
 
 .modal-dialog {
