@@ -1,0 +1,9 @@
+name: Increase Video Filter Limits
+description: Double click on the video filter slides to increase their min/max values.
+# requires: CommunityScriptsUILibrary
+version: 0.1
+ui:
+  requires:
+    - CommunityScriptsUILibrary
+  javascript:
+    - increaseVideoFilters.js
